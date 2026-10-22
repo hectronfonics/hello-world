@@ -1,0 +1,40 @@
+:root{--bg:#f4f6fa;--card:#fff;--fg:#14181f;--muted:#667085;--line:#dde2ea;--brand:#0b5fff;--danger:#d92d20;--ok:#12a150}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1116;--card:#171b22;--fg:#eef1f6;--muted:#9aa4b2;--line:#2a313c}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.4 system-ui,sans-serif;padding-bottom:env(safe-area-inset-bottom)}
+header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--brand);color:#fff;position:sticky;top:0;z-index:2}
+h1{font-size:1.15rem;margin:0}
+.status{font-size:.8rem;opacity:.9}
+.tabs{display:flex;background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:48px;z-index:2}
+.tabs button{flex:1;padding:14px;border:0;background:none;color:var(--muted);font-size:1rem;border-bottom:3px solid transparent}
+.tabs button.active{color:var(--brand);border-color:var(--brand);font-weight:600}
+main{max-width:640px;margin:0 auto;padding:12px}
+.tab{display:none}.tab.active{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:10px}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.row>input,.row>select{flex:1;min-width:120px}
+input,select,textarea,button{font:inherit;color:inherit;border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--bg)}
+textarea{resize:vertical;width:100%}
+button{background:var(--card);cursor:pointer;min-height:44px}
+button.primary{background:var(--brand);color:#fff;border-color:var(--brand);flex:1}
+button.danger{color:var(--danger)}
+button.mic{flex:1;font-weight:600}
+button.mic.on{background:var(--danger);color:#fff;border-color:var(--danger);animation:pulse 1.2s infinite}
+@keyframes pulse{50%{opacity:.7}}
+.hint{font-size:.8rem;color:var(--muted);margin:0}
+.items{list-style:none;margin:0;padding:0}
+.items li{display:flex;align-items:center;gap:10px;padding:10px 4px;border-bottom:1px solid var(--line)}
+.items li input[type=checkbox]{width:24px;height:24px;flex:none}
+.items li span{flex:1;word-break:break-word}
+.items li.done span{text-decoration:line-through;color:var(--muted)}
+.items li button{padding:4px 10px;min-height:32px}
+.filters{margin-bottom:10px}
+.entry{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px}
+.entry .meta{display:flex;gap:8px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);margin-bottom:6px}
+.tag{background:var(--brand);color:#fff;border-radius:999px;padding:1px 8px}
+.tag.Safety,.tag.Issue{background:var(--danger)}
+.tag.Materials{background:#b54708}
+.entry p{margin:0;white-space:pre-wrap}
+.entry .actions{margin-top:8px;display:flex;gap:8px}
+.entry .actions button{min-height:32px;padding:4px 10px;font-size:.85rem}
+.empty{text-align:center;color:var(--muted);padding:32px}
