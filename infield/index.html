@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b5fff">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg">
+<title>Infield Updates</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>Infield Updates</h1>
+  <span id="status" class="status" aria-live="polite"></span>
+</header>
+
+<nav class="tabs" role="tablist">
+  <button role="tab" data-tab="notes" class="active">Notes</button>
+  <button role="tab" data-tab="lists">Lists</button>
+  <button role="tab" data-tab="feed">Feed</button>
+</nav>
+
+<main>
+  <!-- NOTES -->
+  <section id="tab-notes" class="tab active">
+    <div class="card">
+      <div class="row">
+        <input id="note-site" placeholder="Job / site (optional)" autocomplete="off">
+        <select id="note-cat" aria-label="Category">
+          <option>Progress</option><option>Safety</option><option>Materials</option>
+          <option>Issue</option><option>Customer</option><option>Other</option>
+        </select>
+      </div>
+      <textarea id="note-text" rows="6" placeholder="Tap the mic and talk, or type here…"></textarea>
+      <div class="row">
+        <button id="note-mic" class="mic" aria-pressed="false">🎤 Start talking</button>
+        <button id="note-save" class="primary">Save note</button>
+      </div>
+      <p class="hint">Say “new line”, “period”, “comma” for punctuation. “Scratch that” removes the last phrase.</p>
+    </div>
+  </section>
+
+  <!-- LISTS -->
+  <section id="tab-lists" class="tab">
+    <div class="card">
+      <div class="row">
+        <select id="list-select" aria-label="List"></select>
+        <button id="list-new">+ New</button>
+        <button id="list-del" class="danger">Delete</button>
+      </div>
+      <ul id="items" class="items"></ul>
+      <div class="row">
+        <input id="item-text" placeholder="Add item…" autocomplete="off">
+        <button id="item-add">Add</button>
+      </div>
+      <div class="row">
+        <button id="list-mic" class="mic" aria-pressed="false">🎤 Dictate items</button>
+        <button id="list-clear">Clear checked</button>
+        <button id="list-share">Share</button>
+      </div>
+      <p class="hint">Each pause becomes a new item. Say “scratch that” to remove the last item, or “and” / “next” to split inside a phrase.</p>
+    </div>
+  </section>
+
+  <!-- FEED -->
+  <section id="tab-feed" class="tab">
+    <div class="row filters">
+      <input id="search" type="search" placeholder="Search updates…">
+      <button id="export">Export</button>
+      <button id="share-all">Share</button>
+    </div>
+    <div id="feed"></div>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
